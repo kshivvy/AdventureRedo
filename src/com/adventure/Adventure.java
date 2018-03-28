@@ -23,6 +23,9 @@ public class Adventure {
         }
     }
 
+    /**
+     * Default constructor used to create Adventure when user input is bad.
+     */
     public Adventure() {
         world = JsonParser.getJsonObjectFromFile(DEFAULT_FILE_PATH);
     }
@@ -40,6 +43,8 @@ public class Adventure {
             Adventure game = new Adventure(args[0]);
         }
 
+        //Below is the previous code I had for getting input through the console.
+        //Kept for demo purposes for code review.
         /**
         String url = getUrl();
 
@@ -50,6 +55,7 @@ public class Adventure {
         Adventure game = new Adventure(url);
 
         */
+
         loadGame();
     }
 

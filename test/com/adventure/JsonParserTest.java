@@ -16,6 +16,7 @@ public class JsonParserTest {
 
     private static Layout testWorld;
     private static String defaultURL = "https://courses.engr.illinois.edu/cs126/adventure/siebel.json";
+    private static String defaultFilePath = "Siebel.json";
     private static Adventure testGame;
 
     @Before
@@ -61,5 +62,17 @@ public class JsonParserTest {
             System.out.println("Couldn't find file: " + fileName);
             return null;
         }
+    }
+
+    //Test invalid file path
+    @Test
+    public void testGetJsonObjectFromAnInvalidFile() {
+        assertEquals(null, JsonParser.getJsonObjectFromFile("Not A Real File Path .fake"));
+    }
+
+    //Test valid file path
+    @Test
+    public void testGetJsonObjectFromAFile() {
+        assertEquals(testGame.getLayout(), JsonParser.getJsonObjectFromFile(defaultFilePath));
     }
 }
